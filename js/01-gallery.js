@@ -27,7 +27,7 @@ galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
 galleryRef.addEventListener("click", lightBox);
 
 function lightBox(event) {
-  event.preventDefaylt();
+  event.preventDefault();
   const img = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
