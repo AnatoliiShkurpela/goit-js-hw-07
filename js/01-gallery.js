@@ -2,11 +2,6 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const galleryRef = document.querySelector(".gallery");
-
-// const galleryMarkup = galleryItems
-//   .map(createGalleryItemMarkup)
-//   .join('');
-
 const createGalleryItemMarkup = ({ preview, original, description }) => {
   return `
     <li class="gallery__item">
@@ -29,7 +24,6 @@ const galleryMarkup = galleryItems.reduce((acc, item) => {
 }, "");
 
 galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
-
 galleryRef.addEventListener("click", lightBox);
 
 function lightBox(event) {
@@ -41,7 +35,6 @@ function lightBox(event) {
 `);
 
   instance.show();
-
   galleryRef.addEventListener("keydown", escClick);
 
   function escClick(event) {
