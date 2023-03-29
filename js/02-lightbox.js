@@ -2,12 +2,6 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const galleryRef = document.querySelector('.gallery');
-
-// const galleryMarkup = galleryItems
-//   .map(createGalleryItemMarkup)
-//   .join('');
-
-
 const createGalleryItemMarkup = ({ preview, original, description }) => {
   return `
     <li class="gallery__item">
