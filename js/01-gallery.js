@@ -22,12 +22,19 @@ const createGalleryItemMarkup = ({ preview, original, description }) => {
 const galleryMarkup = galleryItems.reduce((acc, item) => {
   return acc + createGalleryItemMarkup(item);
 }, "");
+// const galleryMarkup = galleryItems
+//   .map(createGalleryItemMarkup)
+//   .join('');
 
 galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
+
 galleryRef.addEventListener("click", lightBox);
 
 function lightBox(event) {
   event.preventDefault();
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
   const img = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
@@ -35,14 +42,15 @@ function lightBox(event) {
 `);
 
   instance.show();
+
   galleryRef.addEventListener("keydown", escClick);
 
   function escClick(event) {
     console.log(event.key, event.code);
     if (event.key === "Escape") {
       instance.close();
+      galleryRef.removeEventListener("keydown", escClick);
     }
   }
 }
-
 // console.log(galleryItems);
