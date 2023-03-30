@@ -27,7 +27,6 @@ const galleryMarkup = galleryItems.reduce((acc, item) => {
 //   .join('');
 
 galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
-
 galleryRef.addEventListener("click", lightBox);
 
 function lightBox(event) {
